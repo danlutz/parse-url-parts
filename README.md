@@ -3,30 +3,46 @@
 ![npm](https://img.shields.io/npm/v/parse-url-parts.svg)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/parse-url-parts.svg)
 
-A lightweight JavaScript library for parsing RFC 1738 compliant Uniform Resource Locators (URLs).
+> A lightweight JavaScript library for parsing RFC 1738 compliant Uniform Resource Locators (URLs).
 
 # Description
 
-Parses the following parts any RFC 1738 compliant url:
-
-- protocol
-- userinfo (username + password, as found in FTP urls)
-- host
-- subDomains
-- rootDomain
-- topLevelDomain
-- port
-- path
-- query parameters
-- fragment
+Parses any RFC 1738 compliant url, including localhost and ftp urls.
 
 <div align="center" style="background-color: #fff; padding: 10px">
     <img src="https://upload.wikimedia.org/wikipedia/commons/9/96/URI_syntax_diagram.png" alt="URI syntax diagram">
 </div>
 
-This [syntax diagram from Wikipedia](https://en.wikipedia.org/wiki/URL#/media/File:URI_syntax_diagram.png) visualizes the supported structure of urls for this module.
+The above [Syntax diagram from Wikipedia](https://en.wikipedia.org/wiki/URL#/media/File:URI_syntax_diagram.png) visualizes the supported structure of urls for this module.
 
-It also supports localhost- and FTP-urls.
+# Documentation
+
+## `parseUrlParts(url)`
+
+Parses parts of an url.
+
+**Note**: If a non-valid url is passed, it will return `null`.
+
+**Note**: Urls need to have at least a `protocol` and a `host` part
+
+### Params
+
+- **String** `url`: The url to be parsed.
+
+### Return
+
+- **Object** An object containing the following fields:
+- `protocol` (String): The protocol.
+- `username` (undefined|String): The username of urls with userinfo (e.g. FTP urls).
+- `password` (undefined|String): The password of urls with userinfo (e.g. FTP urls).
+- `host` (String): Full host (subDomains + rootDomain + topLevelDomain).
+- `subDomains` (undefined|String): Comma-separated list of subDomains
+- `rootDomain` (String): The rootDomain of the url.
+- `topLevelDomain` (undefined|String): The topLevelDomain of the url.
+- `port` (undefined|Number): The port of the url.
+- `path` (undefined|String): Full path of the url, without query params of fragment.
+- `queryParams` (undefined|String): Query parameters of the url.
+- `fragment` (undefined|String): Fragment of the url, without leading "#".
 
 # Usage
 
@@ -36,26 +52,19 @@ const parseUrlParts = require('parse-url-parts')
 const url =
   'https://foo:bar@www.example.com:80/path/deeper-path?q=amazingQuery#id'
 
-const urlParts = parseUrlParts(url)
+console.log(parseUrlParts(url))
+// { protocol: 'https',
+//   username: 'foo',
+//   password: 'bar',
+//   host: 'www.example.com',
+//   subDomains: 'www',
+//   rootDomain: 'example',
+//   topLevelDomain: 'com',
+//   port: 80,
+//   path: '/path/deeper-path',
+//   queryParams: 'q=amazingquery',
+//   fragment: 'id' }
 ```
-
-In this example, urlParts will contain object of the following structure:
-
-```js
-{ protocol: 'https',
-  username: 'foo',
-  password: 'bar',
-  host: 'www.example.com',
-  subDomains: 'www',
-  rootDomain: 'example',
-  topLevelDomain: 'com',
-  port: 80,
-  path: '/path/deeper-path',
-  queryParams: 'q=amazingquery',
-  fragment: 'id' }
-```
-
-If a non-valid url is passed, it will return `null`.
 
 If any non-required part is not found, its value will `undefined`:
 
@@ -64,21 +73,18 @@ const parseUrlParts = require('parse-url-parts')
 
 const url = 'https://example.com'
 
-const urlParts = parseUrlParts(url)
-```
-
-```js
-{ protocol: 'https',
-  username: undefined,
-  password: undefined,
-  host: 'example.com',
-  subDomains: undefined,
-  rootDomain: 'example',
-  topLevelDomain: 'com',
-  port: undefined,
-  path: undefined,
-  queryParams: undefined,
-  fragment: undefined }
+console.log(parseUrlParts(url))
+// { protocol: 'https',
+//   username: undefined,
+//   password: undefined,
+//   host: 'example.com',
+//   subDomains: undefined,
+//   rootDomain: 'example',
+//   topLevelDomain: 'com',
+//   port: undefined,
+//   path: undefined,
+//   queryParams: undefined,
+//   fragment: undefined }
 ```
 
 # Contributing
