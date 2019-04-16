@@ -1,6 +1,6 @@
 {
   "name": "parse-url-parts",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Parse parts of uniform resource locators",
   "main": "dist/parseUrlParts.js",
   "scripts": {
