@@ -1,0 +1,11 @@
+src
+**/__mocks__
+.eslintignore
+.eslintrc
+.huskyrc.json
+.lintstagedrc
+.nvmrc
+.prettierignore
+.prettierrc
+babel.config.js
+jest.config.js
