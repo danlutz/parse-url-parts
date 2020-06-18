@@ -65,7 +65,7 @@ console.log(parseUrlParts(url))
 //   fragment: 'id' }
 ```
 
-If any non-required part is not found, its value will `null`:
+If any non-required part is not found, its value will be `null`:
 
 ```js
 import { parseUrlParts } from "parse-url-parts"
