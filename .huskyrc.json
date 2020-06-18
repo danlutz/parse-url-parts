@@ -1,5 +1,5 @@
 {
-  "hooks": {
-    "pre-commit": "jest && lint-staged"
-  }
+	"hooks": {
+		"pre-commit": "jest && lint-staged"
+	}
 }
