@@ -1,11 +1,12 @@
+node_modules
 src
-**/__mocks__
+.env
 .eslintignore
-.eslintrc
 .huskyrc.json
 .lintstagedrc
 .nvmrc
+.browserslistrc
+.eslintrc
 .prettierignore
 .prettierrc
-babel.config.js
 jest.config.js
