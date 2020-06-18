@@ -1,53 +1,60 @@
 {
-  "name": "parse-url-parts",
-  "version": "1.0.1",
-  "description": "Parse parts of uniform resource locators",
-  "main": "dist/parseUrlParts.js",
-  "scripts": {
-    "clean": "rimraf dist",
-    "preversion": "jest",
-    "version": "npm run build",
-    "build": "npm run clean && npm run transpile",
-    "transpile": "babel src --out-dir dist",
-    "lint": "eslint src",
-    "prettier": "prettier \"**/*.+(js|jsx|json|yml|yaml|html|css|less|scss|ts|tsx|md|mdx|graphql|vue|java|php)\"",
-    "format": "npm run prettier -- --write",
-    "validate": "npm run lint && npm run prettier -- --list-different",
-    "jest": "jest",
-    "test": "jest --watch"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/danlutz/parse-url-parts.git"
-  },
-  "keywords": [
-    "url",
-    "url-parser",
-    "url-parts",
-    "url parser",
-    "url parts",
-    "ftp url",
-    "localhost url"
-  ],
-  "author": "Daniel Lutz <daniel-lutz@live.at>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/danlutz/parse-url-parts/issues"
-  },
-  "homepage": "https://github.com/danlutz/parse-url-parts#readme",
-  "devDependencies": {
-    "@babel/cli": "^7.4.3",
-    "@babel/core": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
-    "babel-eslint": "^10.0.1",
-    "babel-jest": "^24.7.1",
-    "eslint": "^5.16.0",
-    "eslint-config-prettier": "^4.1.0",
-    "husky": "^1.3.1",
-    "jest": "^24.7.1",
-    "jest-config": "^24.7.1",
-    "lint-staged": "^8.1.5",
-    "prettier": "^1.17.0",
-    "rimraf": "^2.6.3"
-  }
+	"name": "parse-url-parts",
+	"version": "1.0.1",
+	"description": "Parse parts of uniform resource locators",
+	"source": "src/index.ts",
+	"main": "dist/index.js",
+	"module": "dist/index.module.js",
+	"unpkg": "dist/index.umd.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"build": "npm run clean && microbundle",
+		"dev": "microbundle watch",
+		"clean": "rimraf dist",
+		"preversion": "jest",
+		"version": "npm run build",
+		"format": "npm run prettier -- --write",
+		"validate": "npm run lint && npm run prettier -- --list-different",
+		"lint": "eslint --ext .js,.jsx,.ts,.tsx ./",
+		"prettier": "prettier \"**/*.+(js|jsx|json|yml|yaml|html|css|less|scss|ts|tsx|md|mdx|graphql|vue|py|java|php)\"",
+		"jest": "jest",
+		"test": "jest --watch"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/danlutz/parse-url-parts.git"
+	},
+	"keywords": [
+		"url",
+		"url-parser",
+		"url-parts",
+		"url parser",
+		"url parts",
+		"ftp url",
+		"localhost url"
+	],
+	"author": "Daniel Lutz <daniel-lutz@live.at>",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/danlutz/parse-url-parts/issues"
+	},
+	"homepage": "https://github.com/danlutz/parse-url-parts#readme",
+	"devDependencies": {
+		"@types/jest": "^26.0.0",
+		"@types/node": "^14.0.13",
+		"@typescript-eslint/eslint-plugin": "^3.3.0",
+		"@typescript-eslint/parser": "^3.3.0",
+		"eslint": "^7.2.0",
+		"eslint-config-prettier": "^6.11.0",
+		"eslint-plugin-jest": "^23.13.2",
+		"husky": "^4.2.5",
+		"jest": "^26.0.1",
+		"jest-config": "^26.0.1",
+		"lint-staged": "^10.2.11",
+		"microbundle": "^0.12.1",
+		"prettier": "^2.0.5",
+		"rimraf": "^3.0.2",
+		"ts-jest": "^26.1.0",
+		"typescript": "^3.9.5"
+	}
 }

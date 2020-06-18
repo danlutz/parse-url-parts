@@ -1,6 +1,9 @@
-const { defaults } = require('jest-config')
+const { defaults } = require("jest-config")
 
 module.exports = {
-  ...defaults,
-  transformIgnorePatterns: ['.test.js', '__mocks__'],
+	...defaults,
+	transform: {
+		"^.+\\.tsx?$": "ts-jest",
+	},
+	modulePathIgnorePatterns: ["dist"],
 }

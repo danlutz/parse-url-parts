@@ -1,11 +1,4 @@
 {
-    "linters": {
-        "*.js": [
-            "eslint"
-        ],
-        "**/*.+(js|jsx|json|yml|yaml|html|css|less|scss|ts|tsx|md|mdx|graphql|vue|java|php)": [
-            "prettier --write",
-            "git add"
-        ]
-    }
+    "*.+(js|jsx|ts|tsx)": "eslint --ext .js,.ts,.tsx",
+    "*.+(js|jsx|json|yml|yaml|html|css|less|scss|ts|tsx|md|mdx|graphql|vue|java|php)": ["prettier --write", "git add"]
 }
