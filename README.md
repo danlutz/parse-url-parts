@@ -67,7 +67,7 @@ console.log(parseUrlParts(url))
 
 If any non-required part is not found, its value will be `null`:
 
-```js
+```ts
 import { parseUrlParts } from "parse-url-parts"
 
 const url = "https://example.com"
