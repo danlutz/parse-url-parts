@@ -1,6 +1,6 @@
 {
 	"name": "parse-url-parts",
-	"version": "1.0.1",
+	"version": "2.0.0",
 	"description": "Parse parts of uniform resource locators",
 	"source": "src/index.ts",
 	"main": "dist/index.js",
