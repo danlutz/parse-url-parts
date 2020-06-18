@@ -65,7 +65,7 @@ console.log(parseUrlParts(url))
 //   fragment: 'id' }
 ```
 
-If any non-required part is not found, its value will `undefined`:
+If any non-required part is not found, its value will `null`:
 
 ```js
 import { parseUrlParts } from "parse-url-parts"
@@ -74,16 +74,16 @@ const url = "https://example.com"
 
 console.log(parseUrlParts(url))
 // { protocol: 'https',
-//   username: undefined,
-//   password: undefined,
+//   username: null,
+//   password: null,
 //   host: 'example.com',
-//   subDomains: undefined,
+//   subDomains: null,
 //   rootDomain: 'example',
 //   topLevelDomain: 'com',
-//   port: undefined,
-//   path: undefined,
-//   queryParams: undefined,
-//   fragment: undefined }
+//   port: null,
+//   path: "",
+//   queryParams: null,
+//   fragment: null }
 ```
 
 # Contributing
