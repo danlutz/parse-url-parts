@@ -33,21 +33,21 @@ Parses parts of an url.
 
 -   **Object** An object containing the following fields:
 -   `protocol` (String): The protocol.
--   `username` (undefined|String): The username of urls with userinfo (e.g. FTP urls).
--   `password` (undefined|String): The password of urls with userinfo (e.g. FTP urls).
+-   `username` (null|String): The username of urls with userinfo (e.g. FTP urls).
+-   `password` (null|String): The password of urls with userinfo (e.g. FTP urls).
 -   `host` (String): Full host (subDomains + rootDomain + topLevelDomain).
--   `subDomains` (undefined|String): Comma-separated list of subDomains
+-   `subDomains` (null|String): Comma-separated list of subDomains
 -   `rootDomain` (String): The rootDomain of the url.
--   `topLevelDomain` (undefined|String): The topLevelDomain of the url.
--   `port` (undefined|Number): The port of the url.
--   `path` (undefined|String): Full path of the url, without query params of fragment.
--   `queryParams` (undefined|String): Query parameters of the url.
--   `fragment` (undefined|String): Fragment of the url, without leading "#".
+-   `topLevelDomain` (null|String): The topLevelDomain of the url.
+-   `port` (null|Number): The port of the url.
+-   `path` (String): Full path of the url, without query params of fragment.
+-   `queryParams` (null|String): Query parameters of the url.
+-   `fragment` (null|String): Fragment of the url, without leading "#".
 
 # Usage
 
-```js
-const parseUrlParts = require("parse-url-parts")
+```ts
+import { parseUrlParts } from "parse-url-parts"
 
 const url = "https://foo:bar@www.example.com:80/path/deeper-path?q=amazingQuery#id"
 
@@ -68,7 +68,7 @@ console.log(parseUrlParts(url))
 If any non-required part is not found, its value will `undefined`:
 
 ```js
-const parseUrlParts = require("parse-url-parts")
+import { parseUrlParts } from "parse-url-parts"
 
 const url = "https://example.com"
 
