@@ -239,6 +239,55 @@ it("Parses fragments of urls", () => {
 	})
 })
 
+it("Parses url with dash in username", () => {
+	expect(
+		parseUrlParts("https://gitlab-ee:xxxxxxxx@system.example.com/diffusion/41/car-order.git"),
+	).toMatchObject({
+		...undefinedProperties,
+		protocol: "https",
+		username: "gitlab-ee",
+		password: "xxxxxxxx",
+		subDomains: "system",
+		host: "system.example.com",
+		rootDomain: "example",
+		topLevelDomain: "com",
+		path: "/diffusion/41/car-order.git",
+	})
+})
+
+it("Parses url without password", () => {
+	expect(
+		parseUrlParts("https://gitlab-ee@system.example.com/diffusion/41/car-order.git"),
+	).toMatchObject({
+		...undefinedProperties,
+		protocol: "https",
+		username: "gitlab-ee",
+		password: "",
+		subDomains: "system",
+		host: "system.example.com",
+		rootDomain: "example",
+		topLevelDomain: "com",
+		path: "/diffusion/41/car-order.git",
+	})
+})
+
+it("Parses ssh git url without password", () => {
+	expect(
+		parseUrlParts("ssh://git@ticket.hochguertel.work:22222/diffusion/41/car-order.git"),
+	).toMatchObject({
+		...undefinedProperties,
+		protocol: "ssh",
+		username: "git",
+		password: "",
+		subDomains: "ticket",
+		host: "ticket.hochguertel.work",
+		rootDomain: "hochguertel",
+		topLevelDomain: "work",
+		path: "/diffusion/41/car-order.git",
+		port: 22222,
+	})
+})
+
 it("Parses urls that contain all possible urlParts", () => {
 	expect(
 		parseUrlParts(

@@ -14,7 +14,7 @@ export interface ParsedURL {
 	fragment?: string
 }
 
-const urlRegex = /(\w+):\/\/((\w+):(\w+)@)?((([\w-]+)\.)*[\w-]+)?(:(\d+))?((\/[\w-]+)*)?(\?(((\w+)=(\w+)(&|;)?)+))?(#(\w+))?/
+const urlRegex = /(\w+):\/\/((\w*[-.]*\w+)(:{0,1})(\w*)@)?((([\w-]+)\.)*[\w-]+)?(:(\d+))?((\/[\w-.]+)*)?(\?(((\w+)=(\w+)(&|;)?)+))?(#(\w+))?/
 
 const parseHostParts = (host: string) => {
 	const hostParts = host.split(".")
@@ -61,6 +61,7 @@ const parseUrlParts = (url: string) => {
 		protocol,
 		,
 		username = null,
+		,
 		password = null,
 		host,
 		,

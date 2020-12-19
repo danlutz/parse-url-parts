@@ -1,5 +1,5 @@
 {
-	"name": "parse-url-parts",
+	"name": "@hochguertel.work/parse-url-parts",
 	"version": "2.0.3",
 	"description": "Parse parts of uniform resource locators",
 	"source": "src/index.ts",
@@ -22,7 +22,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/danlutz/parse-url-parts.git"
+		"url": "git@github.com:tobiashochguertel/parse-url-parts.git"
 	},
 	"keywords": [
 		"url",
@@ -34,6 +34,9 @@
 		"localhost url"
 	],
 	"author": "Daniel Lutz <daniel-lutz@live.at>",
+	"publishConfig": {
+		"access": "restricted"
+	},
 	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/danlutz/parse-url-parts/issues"
